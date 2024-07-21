@@ -58,10 +58,7 @@ syn match logTimeZone '\d\{4} [A-Z]\{2,5}\>' contained
 " Entities
 "---------------------------------------------------------------------------
 syn match logUrl        'http[s]\?:\/\/[^\n|,; '"]\+'
-
-" disable domain regex match, could incorrectly matching a float number bug
-" syn match logDomain     /\v(^|\s)(\w|-)+(\.(\w|-)+)+\s/
-
+syn match logDomain     /\v(^|\s)(\w|-)+(\.(\w|-)+)+\s/
 syn match logUUID       '\w\{8}-\w\{4}-\w\{4}-\w\{4}-\w\{12}'
 syn match logMD5        '\<[a-z0-9]\{32}\>'
 syn match logIPV4       '\<\d\{1,3}\(\.\d\{1,3}\)\{3}\>'
@@ -94,12 +91,10 @@ syn match logXmlEntity       /&#\?\w\+;/
 
 " Levels
 "---------------------------------------------------------------------------
-syntax case ignore " ignore case"
-
 syn keyword logLevelEmergency EMERGENCY EMERG
 syn keyword logLevelAlert ALERT
 syn keyword logLevelCritical CRITICAL CRIT FATAL
-syn keyword logLevelError ERROR ERR FAILURE SEVERE RAISE EXCEPTION TRACEBACK
+syn keyword logLevelError ERROR ERR FAILURE SEVERE
 syn keyword logLevelWarning WARNING WARN
 syn keyword logLevelNotice NOTICE
 syn keyword logLevelInfo INFO
@@ -109,35 +104,6 @@ syn keyword logLevelTrace TRACE FINER FINEST
 
 " Highlight links
 "---------------------------------------------------------------------------
-
-" vim loguru here
-" Define custom highlight groups for each log level using hex colors
-
-hi GURU_TraceColor guifg=#00FFFF
-hi GURU_DebugColor guifg=#ADD8E6
-hi GURU_InfoColor guifg=#EEEEEE
-hi GURU_WarningColor guifg=#FFDD00
-hi GURU_ErrorColor guifg=#FF0000
-hi GURU_CriticalColor guifg=#FF0000
-hi GURU_ExceptionColor guifg=#FF0000
-
-" Link the log levels to the custom highlight groups
-hi def link logLevelTrace GURU_TraceColor
-hi def link logLevelDebug GURU_DebugColor
-hi def link logLevelInfo GURU_InfoColor
-hi def link logLevelWarning GURU_WarningColor
-hi def link logLevelError GURU_ErrorColor
-hi def link logLevelCritical GURU_CriticalColor
-hi def link logLevelException GURU_ExceptionColor
-
-" My additional style
-hi Number guifg=#99AAAA
-hi Float guifg=#99AAAA
-hi Underlined guifg=#6699FF
-
-
-" ----------------------------------------
-
 hi def link logNumber Number
 hi def link logHexNumber Number
 hi def link logBinaryNumber Number

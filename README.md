@@ -1,5 +1,13 @@
 # Vim Log Highlighting
 
+## Fork from https://github.com/MTDL9/vim-log-highlighting
+
+* Python Loguru Style
+
+* The code is used according to my preference
+
+## ========================================
+
 ![Log highlighting example](doc/screenshot.jpg)
 
 ## Overview
